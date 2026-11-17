@@ -137,7 +137,7 @@
     }
     function pickVoice() {
         if (!voices.length) loadVoices();
-        var en = voices.filter(function (v) { return /^en/i.test(v.lang); });
+        var en = voices.filter(function (v) { return /^en[-_]us$/i.test(v.lang); }); if (!en.length) en = voices.filter(function (v) { return /^en/i.test(v.lang); });
         return en.filter(function (v) { return /natural/i.test(v.name); })[0]
             || en.filter(function (v) { return /google us english/i.test(v.name); })[0]
             || en.filter(function (v) { return v.default; })[0]
